@@ -1,0 +1,262 @@
+---
+import Layout from "../layouts/BaseLayout.astro";
+
+const paquetes = [
+  {
+    badge: "Básico UI",
+    icono: "https://img.icons8.com/?size=80&id=Wy3XKG1CjyKf&format=png",
+    titulo: "Paquete Básico",
+    precio: "S/ 400",
+    periodo: "/mes",
+    promocion: "¡PRIMER PROYECTO GRATIS!",
+    caracteristicas: [
+      "1 proyecto activo",
+      "Hasta 15 usuarios",
+      "Control de Producción CP.360°",
+      "Gestión de tareas básicas",
+      "Reportes de campo",
+      "Dashboard básico de productividad",
+      "Soporte por chat"
+    ],
+    boton: "Empezar Gratis",
+    destacado: false
+  },
+  {
+    badge: "Pro UI",
+    icono: "https://img.icons8.com/?size=80&id=j9hnALEs8TrH&format=png",
+    titulo: "Paquete Profesional",
+    precio: "S/ 800",
+    periodo: "/mes",
+    caracteristicas: [
+      "2 proyectos activos",
+      "Hasta 25 usuarios",
+      "Control de Producción avanzado",
+      "Dashboards ejecutivos",
+      "Reportes especializados",
+      "Gestión completa de mano de obra",
+      "Integración con Excel",
+      "Soporte prioritario"
+    ],
+    boton: "Solicitar Demo",
+    destacado: true
+  },
+  {
+    badge: "Enterprise UI",
+    icono: "https://img.icons8.com/?size=80&id=DVzc1vi8FDJt&format=png",
+    titulo: "Paquete Enterprise",
+    precio: "S/ 950",
+    periodo: "/mes",
+    caracteristicas: [
+      "3 proyectos activos",
+      "Usuarios ilimitados",
+      "Funcionalidades completas",
+      "Jerarquías ilimitadas",
+      "Marca blanca personalizada",
+      "Reportes personalizados",
+      "Integración avanzada",
+      "Soporte 24/7 especializado"
+    ],
+    boton: "Contactar Ventas",
+    destacado: false
+  }
+];
+
+const paquetesIntegrales = [
+  {
+    titulo: "Básico Virtual",
+    precio: "S/ 650",
+    periodo: "/mensuales",
+    caracteristicas: [
+      "Modalidad: Virtual completa",
+      "Tecnología: CP.360° + Implementación",
+      "Control de producción básico",
+      "Gestión de  tareas",
+      "Rerportes de campos",
+      "Ayuda para Presupuesto Meta",
+      "Capacitación virtual del equipo"
+    ],
+    boton: "Contratar Ahora",
+    destacado: false
+  },
+  {
+    titulo: "Profesional No Presencial",
+    precio: "S/ 3500",
+    periodo: "/mensuales",
+    caracteristicas: [
+      "Modalidad: No Presencial",
+      "Tecnología: WARIS + CP.360° + Power BI",
+      "Presupuesto Meta completo con WARIS",
+      "Programación avanzada de obra",
+      "Control de Producción Integral",
+      "Dashboards ejecutivos con Power BI",
+      "Coordinación virtual con administración",
+      "Coordinación con almacén y producción",
+      "Licencia para almacenero + capacitación"
+    ],
+    boton: "Solicitar Propuesta",
+    destacado: true
+  },
+  {
+    titulo: "Enterprise Presencial",
+    precio: "S/ 6000",
+    periodo: "/mensuales",
+    caracteristicas: [
+      "Modalidad: Presencial en obra",
+      "Tecnología: Suite completa WARIS + CP.360° + Power BI",
+      "Presupuesto Meta profesional",
+      "Programación detallada de proyecto",
+      "Control de Producción presencial",
+      "Análisis de resultados con Power BI",
+      "Coordinación presencial con administración",
+      "Gestión integral de almacén y producción",
+      "Capacitación presencial completa",
+      "Consultoría especializada en obra"
+    ],
+    boton: "Contactar Especialista",
+    destacado: false
+  }
+];
+
+---
+
+<Layout
+  title="Paquetes - CP.360°"
+  description="Paquetes de CP.360°"
+>
+  <section class="bg-[#fef2f2] py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-5xl text-center font-bold pb-5 text-gray-800" data-aos="fade-up">
+        Paquetes del Sistema CP.360°
+      </h2>
+      <p class="text-lg md:text-xl py-5 text-gray-600 text-center" data-aos="fade-up" data-aos-delay="100">
+        Planes escalables según el tamaño y necesidades de tu empresa.
+      </p>
+
+      <!-- Grid de tarjetas de precios -->
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12" data-aos="fade-up" data-aos-delay="200">
+        {paquetes.map((paquete) => (
+          <div class={`bg-white rounded-2xl shadow-lg border-2 border-transparent hover:border-primary transition-all duration-700 ease-in-out hover:shadow-2xl  overflow-hidden relative ${paquete.destacado ? 'ring-2 ring-red-500 scale-105' : ''}`}>
+            {paquete.destacado && (
+              <div class="absolute top-0 left-1/2 transform -translate-x-1/2 z-20">
+                <span class="bg-primary text-white text-xs font-bold px-4 py-1 rounded-full shadow-l uppercase tracking-wide">
+                  Más popular
+                </span>
+              </div>
+            )}
+            <div class="absolute top-4 right-4 z-10">
+              <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                {paquete.badge}
+              </span>
+            </div>
+
+            <div class="p-6 pb-4 mt-10">
+              <div class="flex flex-col items-center gap-4 mb-4 text-center">
+                <img src={paquete.icono} alt="Icono" class="w-12 h-12" />
+                <div class="text-sm text-gray-600">
+                  <p class="font-medium">Interfaz {paquete.badge.toLowerCase()} del sistema</p>
+                  <p>Dashboard {paquete.badge === 'Básico UI' ? 'simplificado' : paquete.badge === 'Profesional' ? 'avanzado' : 'ejecutivo'}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-6 pb-6">
+              <h3 class="text-2xl font-bold text-gray-800 text-center mb-4">
+                {paquete.titulo}
+              </h3>
+              
+              <div class="text-center mb-4">
+                <span class="text-5xl font-bold text-red-600">{paquete.precio}</span>
+                <span class="text-gray-600 ml-2">{paquete.periodo}</span>
+              </div>
+              
+              <div class="text-center mb-6">
+                <span class="text-lg font-bold text-red-600">{paquete.promocion}</span>
+              </div>
+
+              <!-- Lista de características -->
+              <div class="space-y-3 mb-8">
+                {paquete.caracteristicas.map((caracteristica, index) => (
+                  <div class={`flex items-center gap-3 py-2 ${index < paquete.caracteristicas.length - 1 ? 'border-b border-gray-100' : ''}`}>
+                    <div class="w-5 h-5 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/>
+                      </svg>
+                    </div>
+                    <span class="text-gray-700 text-sm">{caracteristica}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Botón de acción -->
+              <button class={`w-full py-4 px-6 mb-5 rounded-full text-primary font-bold text-lg transition-all duration-300 ${
+                paquete.destacado 
+                  ? 'bg-white shadow-2xl hover:translate-y-[-2px] cursor-pointer' 
+                  : 'bg-white shadow-2xl hover:translate-y-[-2px] cursor-pointer'
+              }`}>
+                {paquete.boton}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="bg-white py-20">
+    <h2 class="text-3xl md:text-5xl text-center font-bold pb-5 text-gray-800" data-aos="fade-up">
+      Paquetes de Servicios Integrales
+    </h2>
+    <p class="text-lg md:text-xl py-5 text-gray-600 text-center" data-aos="fade-up" data-aos-delay="100">
+      Soluciones completas con implementación, capacitación y soporte especializado
+    </p>
+    <!-- Grid de tarjetas de precios -->
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12" data-aos="fade-up" data-aos-delay="200">
+      {paquetesIntegrales.map((paquete) => (
+        <div class={`bg-white rounded-2xl shadow-lg border-2 border-transparent hover:border-primary transition-all duration-700 ease-in-out hover:shadow-2xl  overflow-hidden relative ${paquete.destacado ? 'ring-2 ring-red-500 scale-105' : ''}`}>
+          {paquete.destacado && (
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 z-20">
+              <span class="bg-primary text-white text-xs font-bold px-4 py-1 rounded-full shadow-l uppercase tracking-wide">
+                Más popular
+              </span>
+            </div>
+          )}
+
+
+          <div class="px-6 pb-6 mt-10">
+            <h3 class="text-xl font-bold text-gray-800 text-center mb-4">
+              {paquete.titulo}
+            </h3>
+            
+            <div class="text-center mb-4">
+              <span class="text-5xl font-bold text-red-600">{paquete.precio}</span>
+              <span class="text-gray-600 ml-2">{paquete.periodo}</span>
+            </div>
+            
+
+            <!-- Lista de características -->
+            <div class="space-y-3 mb-8">
+              {paquete.caracteristicas.map((caracteristica, index) => (
+                <div class={`flex items-center gap-3 py-2 ${index < paquete.caracteristicas.length - 1 ? 'border-b border-gray-100' : ''}`}>
+                  <div class="w-5 h-5 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/>
+                    </svg>
+                  </div>
+                  <span class="text-gray-700 text-sm">{caracteristica}</span>
+                </div>
+              ))}
+            </div>
+
+            <!-- Botón de acción -->
+            <button class={`w-full py-4 px-6 mb-5 rounded-full text-primary font-bold text-lg transition-all duration-300 ${
+              paquete.destacado 
+                ? 'bg-white shadow-2xl hover:translate-y-[-2px] cursor-pointer' 
+                : 'bg-white shadow-2xl hover:translate-y-[-2px] cursor-pointer'
+            }`}>
+              {paquete.boton}
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

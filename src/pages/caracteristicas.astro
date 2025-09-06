@@ -1,0 +1,345 @@
+---
+import Layout from "../layouts/BaseLayout.astro";
+
+const caracteristicas = [
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    badge: "Vista Móvil",
+    titulo: "Multi-dispositivo y Multi-rol",
+    descripcion:
+      "Interfaz optimizada para capataces, producción, oficina técnica y gerencia. Cada rol ve lo que necesita ver con permisos específicos.",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    badge: "Dashboard Tiempo Real",
+    titulo: "Datos en Tiempo Real",
+    descripcion:
+      "Información inmediata desde campo. Sistema escalable con conexiones y cargas desde Excel para máxima flexibilidad.",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    badge: "Valor Ganado",
+    titulo: "Valor Ganado Automático",
+    descripcion:
+      "Compara automáticamente el valor económico del avance vs el costo real. Detecta desviaciones al instante.",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    badge: "Reportes",
+    titulo: "Dashboards Inteligentes",
+    descripcion:
+      "Reportes diarios, semanales, avances por tren, producción acumulada y dashboards ejecutivos automáticos.",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    badge: "Integración Excel",
+    titulo: "Compatibles con Excel",
+    descripcion:
+      "Importa y exporta fácilmente. Compatible con estructura WARIS2000. Mantén tus procesos actuales.",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    badge: "Personalización",
+    titulo: "Marca Blanca Personalizable",
+    descripcion:
+      "Tu logo, tus colores corporativos. Sistema 100% personalizado para tu empresa.",
+  },
+];
+
+const pasos = [
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    badge: "Registro",
+    titulo: "Registro de Asistencia",
+    descripcion:
+      "El capataz registra asistencia y actividad ejecutada con pocos clics desde su dispositivo móvil.",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    badge: "Avance",
+    titulo: "Ingreso de Avance",
+    descripcion:
+      "Se ingresa el avance real en unidades específicas (m², kg, ml, etc.) según la partida ejecutada.",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    badge: "Cálculo",
+    titulo: "Cálculo Automático",
+    descripcion:
+      "El sistema calcula automáticamente cuánto debería costar ese avance según el presupuesto meta.",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    badge: "Costo Real",
+    titulo: "Registro de Costo Real",
+    descripcion:
+      "Se registra el costo real incurrido según horas trabajadas por categoría de personal.",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    badge: "Resultado",
+    titulo: "Resultado Inmediato",
+    descripcion:
+      "El sistema muestra inmediatamente si hubo ahorro o pérdida en ese día específico.",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    badge: "Validación",
+    titulo: "Validación y Trazabilidad",
+    descripcion:
+      "Todo queda validado y registrado en el parte diario para trazabilidad completa del proyecto.",
+  },
+];
+
+const modulos = [
+  {
+    icono: "https://img.icons8.com/?size=80&id=DVzc1vi8FDJt&format=png",
+    tituloHeader: "Captura del módulo de gestión de partes diarios",
+    badge: "Partes Diarios",
+    tituloPrincipal: "Gestión de Partes Diarios",
+    caracteristicas: [
+      "Interfaz intuitiva para creación rápida",
+      "Control de asistencia diaria y semanal",
+      "Trabajos filtrados por estado (programados, ejecutándose, terminados)",
+      "Formato simple para determinar cuadrillas de producción",
+      "Reportes de validación consolidados"
+    ]
+  },
+  {
+    icono: "https://img.icons8.com/?size=80&id=Wy3XKG1CjyKf&format=png",
+    tituloHeader: "Vista de la base de datos de mano de obra",
+    badge: "Base de Datos MO",
+    tituloPrincipal: "Base de Datos de Mano de Obra",
+    caracteristicas: [
+      "Características completas del personal",
+      "Asignación de salarios por categoría",
+      "Consulta de tareas por DNI",
+      "Información centralizada para administración",
+      "Evita horas no autorizadas"
+    ]
+  },
+  {
+    icono: "https://img.icons8.com/?size=80&id=j9hnALEs8TrH&format=png",
+    tituloHeader: "Paneles de control especializados",
+    badge: "Dashboards",
+    tituloPrincipal: "Dashboards Especializados",
+    caracteristicas: [
+      "Panel de obra con proyección diaria",
+      "Avance semanal para detectar bajas de producción",
+      "Producción acumulada por semanas y meses",
+      "Identificación de desviaciones negativas",
+      "Panorama completo por unidades de producción"
+    ]
+  },
+  {
+    icono: "https://img.icons8.com/?size=80&id=DVzc1vi8FDJt&format=png",
+    tituloHeader: "Sistema de reportes especializados",
+    badge: "Reportes",
+    tituloPrincipal: "Reportes Especializados",
+    caracteristicas: [
+      "Tarea para cálculo de pagos",
+      "Avance por tren de trabajo",
+      "Control de producción con metrados",
+      "Avance por partida para valorizaciones",
+      "Saldos y proyecciones automáticas"
+    ]
+  }
+];
+
+---
+
+<Layout
+  title="Características - CP.360°"
+  description="Las características que hacen de CP.360° la mejor solución para tu empresa"
+>
+  <section>
+    <div class="max-w-7xl mx-auto py-20">
+      <h2
+        class="text-3xl text-center md:text-5xl text-[#374151] font-bold pb-5"
+        data-aos="fade-up"
+      >
+        Características Técnicas <br /> del Sistema
+      </h2>
+      <p class="text-lg text-center md:text-xl py-5 text-gray-500" data-aos="fade-up" data-aos-delay="100">
+        Tecnología robusta diseñada específicamente para la construcción
+        peruana.
+      </p>
+      <div class="grid md:grid-cols-2 gap-20 mt-12 place-items-center bg-white">
+        <div class="flex flex-col justify-center p-4" data-aos="fade-up" data-aos-delay="100">
+          <h2
+            class="text-2xl md:text-3xl font-bold text-primary mb-2 flex items-center gap-2"
+          >
+            Sistema Integral de Control
+          </h2>
+          <p class="text-gray-700 text-lg mt-10">
+            <span class="font-semibold text-primary">CP.360°</span> integra todas
+            las funcionalidades que necesitas en una sola plataforma: desde el registro
+            en campo hasta los dashboards ejecutivos.
+          </p>
+          <br />
+          <ul class="space-y-3 w-full">
+            <li class="flex items-start gap-3">
+              <div>
+                <span class="font-semibold text-gray-900"
+                  >Interfaz intuitiva:</span
+                >
+                <span class="text-gray-700">
+                  Diseñada para que capataces, ingenieros y gerentes puedan usar
+                  el sistema sin capacitación extensa.</span
+                >
+              </div>
+            </li>
+            <br />
+            <li class="flex items-start gap-3">
+              <div>
+                <span class="font-semibold text-gray-900"
+                  >Datos en tiempo real:</span
+                >
+                <span class="text-gray-700">
+                  Información actualizada cada minuto desde cualquier
+                  dispositivo móvil o computadora.</span
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="flex justify-center items-center p-4" data-aos="fade-up" data-aos-delay="200">
+          <div
+            class="rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src="https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center"
+              alt="Sistema Integral de Control"
+              class="w-full h-full object-cover object-center"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto pb-10" data-aos="fade-up" data-aos-delay="100">
+      <div class="grid md:grid-cols-3 gap-10 cursor-pointer">
+        {
+          caracteristicas.map(({ image, badge, titulo, descripcion }) => (
+            <div class="relative bg-[#fefefe] shadow-xl rounded-3xl p-10 border-2 border-transparent hover:border-primary transition-all duration-700 eas-in-out">
+              <span class="absolute top-6 right-6 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full shadow-md z-10">
+                {badge}
+              </span>
+              <img src={image} alt="Sistema" class="p-10" />
+              <h2 class="text-xl md:text-2xl text-center font-bold text-primary mb-2 flex items-center gap-2">
+                {titulo}
+              </h2>
+              <p class="text-gray-700 text-lg mt-10">{descripcion}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="max-w-7xl mx-auto py-20">
+      <h2
+        class="text-3xl text-center md:text-5xl text-[#374151] font-bold pb-5"
+        data-aos="fade-up"
+      >
+        Metodología de Control <br /> en 6 Pasos
+      </h2>
+      <p class="text-lg text-center md:text-xl py-5 text-gray-500" data-aos="fade-up" data-aos-delay="100">
+        Flujo natural y efectivo: Campo registra -> Producción valida ->
+        Decisiones inmediatas
+      </p>
+      <div class="bg-[#f9fafb] rounded-3xl p-10 shadow-xl" data-aos="fade-up" data-aos-delay="200">
+        <img
+          src="https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center"
+          alt="Metodología de Control en 6 Pasos"
+          class="w-full h-full object-cover object-center"
+        />
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto py-20 px-4 md:px-0" data-aos="fade-up" data-aos-delay="100">
+      <div class="grid md:grid-cols-3 gap-10 cursor-pointer">
+        {
+          pasos.map(({ image, badge, titulo, descripcion }, idx) => (
+            <div class="relative bg-[#fefefe] shadow-xl rounded-3xl p-10 border-2 border-transparent hover:border-primary transition-all duration-700 eas-in-out group">
+              <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20 group-hover:scale-110 transition-transform duration-300 ease-in-out">
+                <span class="bg-[#c22121] text-white text-2xl font-bold px-5 py-2 rounded-full">
+                  {idx + 1}
+                </span>
+              </div>
+              <span class="absolute top-6 right-6 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full shadow-md z-10">
+                {badge}
+              </span>
+              <img src={image} alt="Sistema" class="p-10" />
+              <h2 class="text-xl md:text-2xl text-center font-bold text-primary mb-2 flex items-center gap-2">
+                {titulo}
+              </h2>
+              <p class="text-gray-700 text-lg mt-10">{descripcion}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="max-w-7xl mx-auto py-20">
+      <h2 class="text-3xl text-center md:text-5xl text-[#374151] font-bold pb-5" data-aos="fade-up">
+        Módulos Funcionales Especializados
+      </h2>
+      <p class="text-lg text-center md:text-xl mb-10 py-5 text-gray-500" data-aos="fade-up" data-aos-delay="100">
+        Sistema integral que cubre todas las necesidades en construcción.
+      </p>
+      <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto p-4 md:p-0" data-aos="fade-up" data-aos-delay="200">
+        {modulos.map((modulo) => (
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden h-[520px] border border-transparent hover:border-[#961a1a] transition-all duration-700 ease-in-out">
+            <div class="bg-[#961a1a] px-6 py-8 text-center relative">
+              <div class="flex justify-center mb-4">
+                <img src={modulo.icono} alt="Icono" class="w-12 h-12" />
+              </div>
+              <h3 class="text-white text-lg font-medium">
+                {modulo.tituloHeader}
+              </h3>
+              <div class="absolute top-4 right-4">
+                <span class="bg-primary text-white text-xs font-medium px-3 py-1 rounded-full">
+                  {modulo.badge}
+                </span>
+              </div>
+            </div>
+            
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-6">
+                <img src={modulo.icono} alt="Icono" class="w-8 h-8" />
+                <h4 class="text-xl font-bold text-red-600">{modulo.tituloPrincipal}</h4>
+              </div>
+              
+              <div class="space-y-4">
+                {modulo.caracteristicas.map((caracteristica, index) => (
+                  <div class={`flex text-sm items-center gap-3 py-2 ${index < modulo.caracteristicas.length - 1 ? 'border-b border-gray-100' : ''}`}>
+                    <div class="w-5 h-5 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/>
+                      </svg>
+                    </div>
+                    <span class="text-gray-700">{caracteristica}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
