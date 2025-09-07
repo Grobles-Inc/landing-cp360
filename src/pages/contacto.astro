@@ -52,7 +52,11 @@ import Layout from '../layouts/BaseLayout.astro';
 
       <!-- Formulario de contacto -->
       <div data-aos="fade-up" data-aos-delay="200">
-        <form class="bg-[#fef2f2] p-8 rounded-2xl max-w-4xl mx-auto gap-4" action="#" method="POST">
+        <form 
+          class="bg-[#fef2f2] p-8 rounded-2xl max-w-4xl mx-auto gap-4 space-y-6 lg:space-y-10" 
+          method="POST"
+          id="contactForm"
+        >
           <!-- Campo Nombre -->
           <div>
             <label for="nombre" class="block text-sm font-semibold text-gray-700 mb-2">
@@ -110,3 +114,34 @@ import Layout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 </Layout>
+
+<script>
+  import { sendWhatsappMessage } from "../utils/whatsapp";
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm') as HTMLFormElement;
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
+        const empresa = (document.getElementById('empresa') as HTMLInputElement).value;
+        const mensaje = (document.getElementById('mensaje') as HTMLTextAreaElement).value;
+
+        if (nombre && empresa && mensaje) {
+          sendWhatsappMessage({
+            nombre: nombre,
+            empresa: empresa,
+            mensaje: mensaje,
+          });
+
+          form.reset();
+          alert('Mensaje enviado correctamente');
+        } else {
+          alert('Por favor, complete todos los campos requeridos');
+        }
+      })
+    }
+  })
+</script>
