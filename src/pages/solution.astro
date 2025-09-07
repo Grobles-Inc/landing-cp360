@@ -80,10 +80,10 @@ const resultados = [
       <h2 class="text-3xl md:text-5xl text-white font-bold pb-5 text-center" data-aos="fade-up">
         La Solución que Estabas Esperando
       </h2>
-      <p class="text-lg md:text-xl py-5 text-gray-300 text-center" data-aos="fade-up">
+      <p class="text-lg md:text-xl font-semibold py-5 text-gray-300 text-center" data-aos="fade-up">
         CP.360° - Control de Producción en Tiempo Real
       </p>
-      <p class="text-lg text-gray-300 text-center max-w-4xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
+      <p class="text-lg text-gray-300 text-center max-w-4xl font-semibold mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
         Imagínate saber CADA DÍA si estas ganando o perdiendo dinero. Imagínate tomar decisiones con datos en tiempo real. Imagínate tener el control total de tus proyectos en tiempo real.
       </p>
       <div class="grid md:grid-cols-2 gap-8 mt-10 place-items-center max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
@@ -101,16 +101,16 @@ const resultados = [
       <h2 class="text-3xl md:text-5xl text-center font-bold pb-5" data-aos="fade-up">
         Filosofía 360° - Más que un Sistema
       </h2>
-      <p class="text-lg md:text-xl py-5 text-gray-500 text-center" data-aos="fade-up" data-aos-delay="100">
+      <p class="text-lg md:text-xl py-5 font-semibold text-gray-500 text-center" data-aos="fade-up" data-aos-delay="100">
         Una nueva forma de pensar en el control de construcción.
       </p>
       <div class="grid md:grid-cols-3 gap-8 mt-10 place-items-center p-4 md:p-0 max-w-5xl mx-auto cursor-pointer" data-aos="fade-up" data-aos-delay="200">
         {filosofias.map(({ icono, titulo, descripcion }) => (
           <div class="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 ease-in hover:shadow-2xl min-h-[260px] md:min-h-[400px] w-full border-t-4 border-primary">
             <img src={icono} alt="Icono" class="mx-auto mb-4" />
-            <h3 class="text-lg md:text-2xl font-bold text-center mb-2">{titulo}</h3>
+            <h3 class="text-lg md:text-2xl text-primary font-bold text-center mb-2">{titulo}</h3>
             <div>
-              <p>{descripcion}</p>
+              <p class="text-gray-700 font-semibold">{descripcion}</p>
             </div>
           </div>
         ))}
@@ -122,7 +122,7 @@ const resultados = [
       <h2 class="text-3xl md:text-5xl text-center font-bold pb-5" data-aos="fade-up">
         Resultados que SÍ Importan
       </h2>
-      <p class="text-lg md:text-xl py-5 text-gray-500 text-center" data-aos="fade-up" data-aos-delay="100">
+      <p class="text-lg md:text-xl py-5 font-semibold text-gray-500 text-center" data-aos="fade-up" data-aos-delay="100">
         Lo que realmente lograrás con CP.360°
       </p>
       <div class="grid md:grid-cols-3 gap-8 mt-10 place-items-center p-4 md:p-0 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
@@ -131,7 +131,7 @@ const resultados = [
             <div class="result-card-content">
               <span class="text-5xl font-extrabold mb-3">{valor}</span>
               <h3 class="text-lg md:text-xl font-bold text-center mb-2">{title}</h3>
-              <p class="font-medium text-md text-center">{descripcion}</p>
+              <p class="font-medium pt-5 text-md text-center">{descripcion}</p>
             </div>
           </div>
         ))}
