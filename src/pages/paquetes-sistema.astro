@@ -1,0 +1,224 @@
+---
+import Layout from "../layouts/BaseLayout.astro";
+
+const paquetes = [
+  {
+    badge: "Básico UI",
+    icono: "https://img.icons8.com/?size=80&id=Wy3XKG1CjyKf&format=png",
+    titulo: "Paquete Básico",
+    precio: "S/ 400",
+    periodo: "/mes",
+    promocion: "¡PRIMER PROYECTO GRATIS!",
+    caracteristicas: [
+      "1 proyecto activo",
+      "Hasta 15 usuarios",
+      "Control de Producción CP.360°",
+      "Gestión de tareas básicas",
+      "Reportes de campo",
+      "Dashboard básico de productividad",
+      "Soporte por chat"
+    ],
+    boton: "Empezar Gratis",
+    destacado: false
+  },
+  {
+    badge: "Pro UI",
+    icono: "https://img.icons8.com/?size=80&id=j9hnALEs8TrH&format=png",
+    titulo: "Paquete Profesional",
+    precio: "S/ 650",
+    periodo: "/mes",
+    caracteristicas: [
+      "2 proyectos activos",
+      "Hasta 25 usuarios",
+      "Control de Producción avanzado",
+      "Dashboards ejecutivos",
+      "Reportes especializados",
+      "Gestión completa de mano de obra",
+      "Integración con Excel",
+      "Soporte prioritario"
+    ],
+    boton: "Solicitar Demo",
+    destacado: true
+  },
+  {
+    badge: "Enterprise UI",
+    icono: "https://img.icons8.com/?size=80&id=DVzc1vi8FDJt&format=png",
+    titulo: "Paquete Enterprise",
+    precio: "S/ 950",
+    periodo: "/mes",
+    caracteristicas: [
+      "3 proyectos activos",
+      "Usuarios ilimitados",
+      "Funcionalidades completas",
+      "Jerarquías ilimitadas",
+      "Marca blanca personalizada",
+      "Reportes personalizados",
+      "Integración avanzada",
+      "Soporte 24/7 especializado"
+    ],
+    boton: "Contactar Ventas",
+    destacado: false
+  }
+];
+---
+
+<Layout
+  title="Paquetes del Sistema CP.360° - CP.360°"
+  description="Planes escalables del sistema CP.360° según el tamaño y necesidades de tu empresa"
+>
+
+  <!-- Hero Section -->
+  <section class="bg-[#fef2f2] py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-6xl font-bold pb-5 text-gray-800" data-aos="fade-up">
+          Paquetes del Sistema CP.360°
+        </h1>
+        <p class="text-lg md:text-xl font-semibold py-5 text-gray-600" data-aos="fade-up" data-aos-delay="100">
+          Planes escalables según el tamaño y necesidades de tu empresa
+        </p>
+        <div class="max-w-3xl mx-auto">
+          <p class="text-gray-700 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+            Elige el plan que mejor se adapte a tu empresa. Todos nuestros paquetes incluyen 
+            acceso completo al sistema CP.360° con diferentes niveles de funcionalidades y soporte.
+          </p>
+        </div>
+      </div>
+
+      <!-- Grid de tarjetas de precios -->
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12" data-aos="fade-up" data-aos-delay="300">
+        {paquetes.map((paquete) => (
+          <div class={`bg-white rounded-2xl shadow-lg border-2 border-transparent hover:border-primary transition-all duration-700 ease-in-out hover:shadow-2xl overflow-hidden relative ${paquete.destacado ? 'ring-2 ring-red-500 scale-105' : ''}`}>
+            {paquete.destacado && (
+              <div class="absolute top-0 left-1/2 transform -translate-x-1/2 z-20">
+                <span class="bg-primary text-white text-xs font-bold px-4 py-1 rounded-full shadow-l uppercase tracking-wide">
+                  Más popular
+                </span>
+              </div>
+            )}
+            <div class="absolute top-4 right-4 z-10">
+              <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                {paquete.badge}
+              </span>
+            </div>
+
+            <div class="p-6 pb-4 mt-10">
+              <div class="flex flex-col items-center gap-4 mb-4 text-center">
+                <img src={paquete.icono} alt="Icono" class="w-12 h-12" />
+                <div class="text-sm text-gray-600">
+                  <p class="font-medium">Interfaz {paquete.badge.toLowerCase()} del sistema</p>
+                  <p>Dashboard {paquete.badge === 'Básico UI' ? 'simplificado' : paquete.badge === 'Pro UI' ? 'avanzado' : 'ejecutivo'}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-6 pb-6">
+              <h3 class="text-2xl font-bold text-gray-800 text-center mb-4">
+                {paquete.titulo}
+              </h3>
+              
+              <div class="text-center mb-4">
+                <span class="text-5xl font-bold text-red-600">{paquete.precio}</span>
+                <span class="text-gray-600 ml-2">{paquete.periodo}</span>
+              </div>
+              
+              <div class="text-center mb-6">
+                <span class="text-lg font-bold text-red-600">{paquete.promocion}</span>
+              </div>
+
+              <!-- Lista de características -->
+              <div class="space-y-3 mb-8">
+                {paquete.caracteristicas.map((caracteristica, index) => (
+                  <div class={`flex items-center gap-3 py-2 ${index < paquete.caracteristicas.length - 1 ? 'border-b border-gray-100' : ''}`}>
+                    <div class="w-5 h-5 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/>
+                      </svg>
+                    </div>
+                    <span class="text-gray-700 text-sm">{caracteristica}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Botón de acción -->
+              <button 
+                class={`paquete-btn w-full py-4 px-6 mb-5 rounded-full text-primary font-bold text-lg transition-all duration-300 ${
+                  paquete.destacado 
+                    ? 'bg-white shadow-2xl hover:translate-y-[-2px] cursor-pointer' 
+                    : 'bg-white shadow-2xl hover:translate-y-[-2px] cursor-pointer'
+                }`}
+                data-paquete={paquete.titulo}
+                data-precio={`${paquete.precio}${paquete.periodo}`}
+              >
+                {paquete.boton}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Información adicional -->
+  <section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+          ¿Por qué elegir nuestros paquetes del sistema?
+        </h2>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Implementación Rápida</h3>
+          <p class="text-gray-600">Configuración y puesta en marcha en menos de 48 horas</p>
+        </div>
+        
+        <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Soporte Especializado</h3>
+          <p class="text-gray-600">Asistencia técnica dedicada según tu plan</p>
+        </div>
+        
+        <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Escalabilidad</h3>
+          <p class="text-gray-600">Crece con tu empresa, actualiza tu plan cuando lo necesites</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import { sendPaqueteWhatsappMessage } from '../utils/whatsapp.ts';
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const paqueteButtons = document.querySelectorAll('.paquete-btn');
+    
+    paqueteButtons.forEach(button => {
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const paquete = this.getAttribute('data-paquete');
+        const precio = this.getAttribute('data-precio');
+        
+        sendPaqueteWhatsappMessage({
+          paquete: paquete || '',
+          precio: precio || ''
+        });
+      });
+    });
+  });
+</script>

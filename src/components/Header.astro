@@ -20,7 +20,31 @@ import HeaderLink from './HeaderLink.astro';
 				<HeaderLink href="/" class="hover:text-primary transition-all duration-300 ease-in-out">Inicio</HeaderLink>
 				<HeaderLink href="/solution" class="hover:text-primary transition-all duration-300 ease-in-out">Solución</HeaderLink>
 				<HeaderLink href="/caracteristicas" class="hover:text-primary transition-all duration-300 ease-in-out">Características</HeaderLink>
-				<HeaderLink href="/paquetes" class="hover:text-primary transition-all duration-300 ease-in-out">Paquetes</HeaderLink>
+				
+				<!-- Dropdown de Paquetes -->
+				<div class="relative group">
+					<button class="hover:text-primary transition-all duration-300 ease-in-out flex items-center gap-1">
+						Paquetes
+						<svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</button>
+					
+					<!-- Dropdown Menu -->
+					<div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out transform translate-y-2 group-hover:translate-y-0 z-50">
+						<div class="p-2">
+							<a href="/paquetes-sistema" class="block px-4 py-3 rounded-lg text-gray-800 hover:bg-red-50 hover:text-primary transition-colors duration-200">
+								<div class="font-semibold text-sm">Sistema CP.360°</div>
+								<div class="text-xs text-gray-600 mt-1">Planes escalables del sistema</div>
+							</a>
+							<a href="/paquetes-integrales" class="block px-4 py-3 rounded-lg text-gray-800 hover:bg-red-50 hover:text-red-600 transition-colors duration-200">
+								<div class="font-semibold text-sm">Servicios Integrales</div>
+								<div class="text-xs text-gray-600 mt-1">Implementación y capacitación</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				
 				<HeaderLink href="/contacto" class="hover:text-primary transition-all duration-300 ease-in-out">Contacto</HeaderLink>
 			</div>
 
@@ -78,9 +102,32 @@ import HeaderLink from './HeaderLink.astro';
 					<a href="/caracteristicas" class="block px-6 py-4 text-white font-bold hover:bg-white/10 hover:text-primary transition-all duration-300">
 						Características
 					</a>
-					<a href="/paquetes" class="block px-6 py-4 text-white font-bold hover:bg-white/10 hover:text-primary transition-all duration-300">
-						Paquetes
-					</a>
+					
+					<!-- Dropdown móvil de Paquetes -->
+					<div class="px-6">
+						<button 
+							id="mobile-packages-toggle" 
+							class="flex items-center justify-between w-full py-4 text-white font-bold hover:text-primary transition-all duration-300"
+						>
+							Paquetes
+							<svg id="mobile-packages-arrow" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+							</svg>
+						</button>
+						
+						<!-- Submenu móvil de Paquetes -->
+						<div id="mobile-packages-submenu" class="hidden ml-4 space-y-2">
+							<a href="/paquetes#sistema" class="block py-2 text-white/80 hover:text-primary transition-colors duration-300">
+								<div class="font-semibold text-sm">Sistema CP.360°</div>
+								<div class="text-xs text-white/60 mt-1">Planes escalables del sistema</div>
+							</a>
+							<a href="/paquetes#integrales" class="block py-2 text-white/80 hover:text-primary transition-colors duration-300">
+								<div class="font-semibold text-sm">Servicios Integrales</div>
+								<div class="text-xs text-white/60 mt-1">Implementación y capacitación</div>
+							</a>
+						</div>
+					</div>
+					
 					<a href="/contacto" class="block px-6 py-4 text-white font-bold hover:bg-white/10 hover:text-primary transition-all duration-300">
 						Contacto
 					</a>
@@ -100,58 +147,59 @@ import HeaderLink from './HeaderLink.astro';
 </header>
 
 <script>
-	// Funcionalidad del menú hamburguesa
 	document.addEventListener('DOMContentLoaded', function() {
 		const mobileMenuButton = document.getElementById('mobile-menu-button');
 		const mobileMenu = document.getElementById('mobile-menu');
 		const mobileMenuClose = document.getElementById('mobile-menu-close');
 		const mobileMenuPanel = mobileMenu?.querySelector('div');
 
-		// Función para abrir el menú
+		const mobilePackagesToggle = document.getElementById('mobile-packages-toggle');
+		const mobilePackagesSubmenu = document.getElementById('mobile-packages-submenu');
+		const mobilePackagesArrow = document.getElementById('mobile-packages-arrow');
+
 		function openMenu() {
 			if (mobileMenu && mobileMenuPanel) {
 				mobileMenu.classList.remove('hidden');
-				// Pequeño delay para que la transición se vea suave
 				setTimeout(() => {
 					mobileMenuPanel.classList.remove('translate-x-full');
 				}, 10);
-				// Prevenir scroll del body
 				document.body.style.overflow = 'hidden';
 			}
 		}
 
-		// Función para cerrar el menú
 		function closeMenu() {
 			if (mobileMenu && mobileMenuPanel) {
 				mobileMenuPanel.classList.add('translate-x-full');
-				// Esperar a que termine la animación antes de ocultar
 				setTimeout(() => {
 					mobileMenu.classList.add('hidden');
 				}, 300);
-				// Restaurar scroll del body
 				document.body.style.overflow = '';
 			}
 		}
 
-		// Event listeners
+		function togglePackagesSubmenu() {
+			if (mobilePackagesSubmenu && mobilePackagesArrow) {
+				mobilePackagesSubmenu.classList.toggle('hidden');
+				mobilePackagesArrow.classList.toggle('rotate-180');
+			}
+		}
+
 		mobileMenuButton?.addEventListener('click', openMenu);
 		mobileMenuClose?.addEventListener('click', closeMenu);
+		mobilePackagesToggle?.addEventListener('click', togglePackagesSubmenu);
 
-		// Cerrar al hacer click en el overlay
 		mobileMenu?.addEventListener('click', function(e) {
 			if (e.target === mobileMenu) {
 				closeMenu();
 			}
 		});
 
-		// Cerrar con la tecla Escape
 		document.addEventListener('keydown', function(e) {
 			if (e.key === 'Escape' && !mobileMenu?.classList.contains('hidden')) {
 				closeMenu();
 			}
 		});
 
-		// Cerrar el menú al hacer click en un link (para navegación)
 		const mobileLinks = mobileMenu?.querySelectorAll('a');
 		mobileLinks?.forEach(link => {
 			link.addEventListener('click', closeMenu);
