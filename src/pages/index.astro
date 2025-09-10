@@ -1,15 +1,14 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Layout from '../layouts/BaseLayout.astro';
-import HeroSection from '../components/HeroSection.astro';
-import HomeSection from '../components/HomeSection.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Layout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import HomeSection from "../components/HomeSection.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import CTA from "../components/CTA.astro";
 ---
 
-<Layout
-	title={SITE_TITLE}
-	description={SITE_DESCRIPTION}
->
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
 	<HeroSection />
 	<HomeSection />
+	<CTA />
 </Layout>

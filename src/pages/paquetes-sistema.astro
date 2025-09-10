@@ -90,7 +90,7 @@ const paquetes = [
         {paquetes.map((paquete) => (
           <div class={`bg-white rounded-2xl shadow-lg border-2 border-transparent hover:border-primary transition-all duration-700 ease-in-out hover:shadow-2xl overflow-hidden relative ${paquete.destacado ? 'ring-2 ring-red-500 scale-105' : ''}`}>
             {paquete.destacado && (
-              <div class="absolute top-0 left-1/2 transform -translate-x-1/2 z-20">
+              <div class="absolute top-2 z-20 left-1/2 transform -translate-x-1/2 ">
                 <span class="bg-primary text-white text-xs font-bold px-4 py-1 rounded-full shadow-l uppercase tracking-wide">
                   Más popular
                 </span>
@@ -139,19 +139,21 @@ const paquetes = [
                   </div>
                 ))}
               </div>
-
-              <!-- Botón de acción -->
+<a
+  href={`https://wa.me/51971419928?text=Hola, quiero saber más sobre el paquete ${encodeURIComponent(paquete.titulo)} ${encodeURIComponent(paquete.precio)} ${encodeURIComponent(paquete.periodo)}`}
+  target="_blank"
+  rel="noopener noreferrer"
+>
               <button 
-                class={`paquete-btn w-full py-4 px-6 mb-5 rounded-full text-primary font-bold text-lg transition-all duration-300 ${
+                class={`paquete-btn w-full py-4 px-6 border border-primary mb-5 rounded-full text-primary font-bold text-lg transition-all duration-300 ${
                   paquete.destacado 
-                    ? 'bg-white shadow-2xl hover:translate-y-[-2px] cursor-pointer' 
+                  ? 'bg-white shadow-2xl hover:translate-y-[-2px] cursor-pointer' 
                     : 'bg-white shadow-2xl hover:translate-y-[-2px] cursor-pointer'
                 }`}
-                data-paquete={paquete.titulo}
-                data-precio={`${paquete.precio}${paquete.periodo}`}
               >
                 {paquete.boton}
               </button>
+                </a>
             </div>
           </div>
         ))}
@@ -203,22 +205,3 @@ const paquetes = [
   </section>
 </Layout>
 
-<script>
-  import { sendPaqueteWhatsappMessage } from '../utils/whatsapp.ts';
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const paqueteButtons = document.querySelectorAll('.paquete-btn');
-    
-    paqueteButtons.forEach(button => {
-      button.addEventListener('click', function(this: HTMLButtonElement) {
-        const paquete = this.getAttribute('data-paquete');
-        const precio = this.getAttribute('data-precio');
-        
-        sendPaqueteWhatsappMessage({
-          paquete: paquete || '',
-          precio: precio || ''
-        });
-      });
-    });
-  });
-</script>

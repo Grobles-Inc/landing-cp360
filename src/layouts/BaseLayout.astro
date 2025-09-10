@@ -1,17 +1,17 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import CTA from '../components/CTA.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import CTA from "../components/CTA.astro";
 
 type Props = {
 	title?: string;
 	description?: string;
 };
 
-const { 
-	title = 'CP.360°', 
-	description = 'Control de Producción en Tiempo Real',
+const {
+	title = "CP.360°",
+	description = "Control de Producción en Tiempo Real",
 } = Astro.props;
 ---
 
@@ -25,18 +25,18 @@ const {
 		<main class="pt-24">
 			<slot />
 		</main>
-		<CTA />
+
 		<Footer />
-		
+
 		<script>
-			import AOS from 'aos';
-			
-			document.addEventListener('DOMContentLoaded', function() {
+			import AOS from "aos";
+
+			document.addEventListener("DOMContentLoaded", function () {
 				AOS.init({
 					duration: 1000,
 					once: true,
 					offset: 100,
-					easing: 'ease-out-cubic',
+					easing: "ease-out-cubic",
 				});
 			});
 		</script>
