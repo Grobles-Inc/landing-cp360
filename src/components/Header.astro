@@ -4,7 +4,7 @@ import HeaderLink from "./HeaderLink.astro";
 ---
 
 <header>
-	<nav class="bg-[#9198a5] fixed top-0 left-0 right-0 z-50">
+	<nav class="bg-white fixed top-0 left-0 right-0 z-50 shadow">
 		<div class="flex items-center mx-auto justify-between px-4 pt-4 max-w-6xl">
 			<!-- Logo -->
 			<div class="w-20 h-20">
@@ -14,7 +14,7 @@ import HeaderLink from "./HeaderLink.astro";
 			</div>
 
 			<!-- Menu Desktop -->
-			<div class="hidden lg:flex space-x-6 text-white font-bold">
+			<div class="hidden lg:flex space-x-6 text-primary font-bold">
 				<HeaderLink
 					href="/"
 					class="hover:text-primary transition-all duration-300 ease-in-out"
@@ -138,7 +138,7 @@ import HeaderLink from "./HeaderLink.astro";
 			<div class="lg:hidden">
 				<button
 					id="mobile-menu-button"
-					class="text-white focus:outline-none focus:text-primary transition-colors duration-300"
+					class="text-black focus:outline-none focus:text-primary transition-colors duration-300"
 					aria-label="Abrir menú de navegación"
 				>
 					<svg
@@ -163,7 +163,7 @@ import HeaderLink from "./HeaderLink.astro";
 			class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 hidden"
 		>
 			<div
-				class="fixed right-0 top-0 h-full w-80 bg-[#9198a5] shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out"
+				class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out"
 			>
 				<!-- Header del menú móvil -->
 				<div
@@ -172,7 +172,7 @@ import HeaderLink from "./HeaderLink.astro";
 					<img src="/logo.png" alt="CP.360°" class="object-contain size-1/3" />
 					<button
 						id="mobile-menu-close"
-						class="text-white hover:text-primary transition-colors duration-300"
+						class="text-black hover:text-primary transition-colors duration-300"
 						aria-label="Cerrar menú"
 					>
 						<svg
@@ -194,19 +194,19 @@ import HeaderLink from "./HeaderLink.astro";
 				<div class="py-6">
 					<a
 						href="/"
-						class="block px-6 py-4 text-white font-bold hover:bg-white/10 hover:text-primary transition-all duration-300"
+						class="block px-6 py-4 text-black font-bold hover:bg-white/10 hover:text-primary transition-all duration-300"
 					>
 						Inicio
 					</a>
 					<a
 						href="/solution"
-						class="block px-6 py-4 text-white font-bold hover:bg-white/10 hover:text-primary transition-all duration-300"
+						class="block px-6 py-4 text-black font-bold hover:bg-white/10 hover:text-primary transition-all duration-300"
 					>
 						Solución
 					</a>
 					<a
 						href="/caracteristicas"
-						class="block px-6 py-4 text-white font-bold hover:bg-white/10 hover:text-primary transition-all duration-300"
+						class="block px-6 py-4 text-black font-bold hover:bg-white/10 hover:text-primary transition-all duration-300"
 					>
 						Características
 					</a>
@@ -215,7 +215,7 @@ import HeaderLink from "./HeaderLink.astro";
 					<div class="px-6">
 						<button
 							id="mobile-packages-toggle"
-							class="flex items-center justify-between w-full py-4 text-white font-bold hover:text-primary transition-all duration-300"
+							class="flex items-center justify-between w-full py-4 text-black font-bold hover:text-primary transition-all duration-300"
 						>
 							Paquetes
 							<svg
@@ -237,19 +237,19 @@ import HeaderLink from "./HeaderLink.astro";
 						<div id="mobile-packages-submenu" class="hidden ml-4 space-y-2">
 							<a
 								href="/paquetes-sistema"
-								class="block py-2 text-white/80 hover:text-primary transition-colors duration-300"
+								class="block py-2 text-black/80 hover:text-primary transition-colors duration-300"
 							>
 								<div class="font-semibold text-sm">Sistema CP.360°</div>
-								<div class="text-xs text-white/60 mt-1">
+								<div class="text-xs text-black/60 mt-1">
 									Planes escalables del sistema
 								</div>
 							</a>
 							<a
 								href="/paquetes-integrales"
-								class="block py-2 text-white/80 hover:text-primary transition-colors duration-300"
+								class="block py-2 text-black/80 hover:text-primary transition-colors duration-300"
 							>
 								<div class="font-semibold text-sm">Servicios Integrales</div>
-								<div class="text-xs text-white/60 mt-1">
+								<div class="text-xs text-black/60 mt-1">
 									Implementación y capacitación
 								</div>
 							</a>
@@ -258,7 +258,7 @@ import HeaderLink from "./HeaderLink.astro";
 					<div class="px-6">
 						<button
 							id="mobile-aliados-toggle"
-							class="flex items-center justify-between w-full py-4 text-white font-bold hover:text-primary transition-all duration-300"
+							class="flex items-center justify-between w-full py-4 text-black font-bold hover:text-primary transition-all duration-300"
 						>
 							Aliados
 							<svg
@@ -280,10 +280,10 @@ import HeaderLink from "./HeaderLink.astro";
 						<div id="mobile-aliados-submenu" class="hidden ml-4 space-y-2">
 							<a
 								href="/aliados/planner"
-								class="block py-2 text-white/80 hover:text-primary transition-colors duration-300"
+								class="block py-2 text-black/80 hover:text-primary transition-colors duration-300"
 							>
 								<div class="font-semibold text-sm">Pl4nner</div>
-								<div class="text-xs text-white/60 mt-1">
+								<div class="text-xs text-black/60 mt-1">
 									Pl4nner - Optimiza tus proyectos
 								</div>
 							</a>
@@ -305,7 +305,7 @@ import HeaderLink from "./HeaderLink.astro";
 						class="block"
 					>
 						<button
-							class="w-full bg-primary text-white rounded-full px-5 shadow-md py-3 cursor-pointer hover:bg-[#991b1b] transition-all duration-300 ease-in-out font-bold"
+							class="w-full bg-primary text-black rounded-full px-5 shadow-md py-3 cursor-pointer hover:bg-[#991b1b] transition-all duration-300 ease-in-out font-bold"
 						>
 							Contáctanos
 						</button>

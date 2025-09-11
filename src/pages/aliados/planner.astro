@@ -15,10 +15,10 @@ import Layout from "../../layouts/BaseLayout.astro";
     >
     </div>
     <div
-      class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10"
+      class="max-w-7xl mx-auto grid lg:grid-cols-1 gap-16 items-center relative z-10"
     >
       <!-- Left content -->
-      <div class="lg:space-y-20 space-y-14">
+      <div class="lg:space-y-20 space-y-14 lg:text-center">
         <!-- Bullet point -->
         <div
           class="text-gray-600 space-y-4"
@@ -28,7 +28,7 @@ import Layout from "../../layouts/BaseLayout.astro";
           <img
             src="https://pl4nner.com/wp-content/uploads/2023/07/pl4nner-logo-768x223.webp"
             alt="Pl4nner"
-            class="w-1/2 h-full object-contain mx-auto"
+            class="w-1/4 h-full object-contain mx-auto"
             data-aos="zoom-in"
             data-aos-delay="200"
           />
@@ -48,23 +48,24 @@ import Layout from "../../layouts/BaseLayout.astro";
             data-aos="slide-up"
             data-aos-delay="300"
           >
-            Prueba <span class="text-purple-600 font-bold">Pl4nner</span>
+            Prueba <span class="text-[#663199] font-black">Pl4nner</span>
             <br />
             <span class="text-gray-700 font-bold">6 meses gratis</span>
             <br />
-            <span class="text-sm">Promción válida para usuarios de CP-360°</span
+            <span class="text-sm"
+              >Promoción válida para usuarios de CP-360°</span
             >
           </h1>
         </div>
 
         <!-- App store buttons -->
         <div
-          class="flex flex-col sm:flex-row gap-4"
+          class="flex flex-col sm:flex-row gap-4 justify-center"
           data-aos="fade-up"
           data-aos-duration="800"
         >
           <a
-            href="#"
+            href="https://play.google.com/store/apps/details?id=com.wnapp.id1694620644521&hl=vn&pli=1"
             class="inline-block"
             data-aos="flip-left"
             data-aos-delay="200"
@@ -76,7 +77,7 @@ import Layout from "../../layouts/BaseLayout.astro";
             />
           </a>
           <a
-            href="#"
+            href="https://apps.apple.com/pe/app/pl4nner/id6468365908"
             class="inline-block"
             data-aos="flip-right"
             data-aos-delay="400"
@@ -91,13 +92,14 @@ import Layout from "../../layouts/BaseLayout.astro";
 
         <!-- CTA Button -->
         <div class="pt-4" data-aos="fade-in" data-aos-duration="600">
-          <button
+          <a
+            href="https://www.pl4nner.com"
             class="bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
             data-aos="bounce-in"
             data-aos-delay="300"
           >
             Contáctanos
-          </button>
+          </a>
         </div>
       </div>
 
