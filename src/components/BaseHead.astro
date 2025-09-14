@@ -1,24 +1,44 @@
 ---
 import "../styles/global.css";
 import type { ImageMetadata } from "astro";
-import FallbackImage from "../assets/blog-placeholder-1.jpg";
-import { SITE_TITLE } from "../consts";
+import { 
+	SITE_TITLE, 
+	SITE_AUTHOR, 
+	SITE_KEYWORDS, 
+	OG_IMAGE, 
+	SOCIAL_TWITTER 
+} from "../consts";
 
 interface Props {
 	title: string;
 	description: string;
-	image?: ImageMetadata;
+	image?: string | ImageMetadata;
+	keywords?: string;
+	author?: string;
+	robots?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
+const { 
+	title, 
+	description, 
+	image = OG_IMAGE,
+	keywords = SITE_KEYWORDS,
+	author = SITE_AUTHOR,
+	robots = "index, follow",
+} = Astro.props;
+
+// Generar la URL completa de la imagen
+const imageUrl = typeof image === 'string' 
+	? new URL(image, Astro.site).href
+	: new URL(image.src, Astro.site).href;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/logo.png" />
+<link rel="icon" type="image/x-icon" href="/logoICO.ico" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
 	rel="alternate"
@@ -27,6 +47,27 @@ const { title, description, image = FallbackImage } = Astro.props;
 	href={new URL("rss.xml", Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
+
+<!-- SEO Meta Tags -->
+<meta name="robots" content={robots} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content={author} />
+<meta name="theme-color" content="#dc2626" />
+<meta name="msapplication-TileColor" content="#dc2626" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="CP.360°" />
+
+<!-- DNS Prefetch para mejorar rendimiento -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+<link rel="dns-prefetch" href="//unpkg.com" />
+
+<!-- Preload de recursos críticos -->
+<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
+<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+
 
 <!-- AOS CSS -->
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
@@ -44,13 +85,19 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={title} />
+<meta property="og:site_name" content="CP.360°" />
+<meta property="og:locale" content="es_PE" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
-
-<!-- AOS JavaScript se inicializa en BaseLayout.astro -->
+<meta property="twitter:image" content={imageUrl} />
+<meta property="twitter:image:alt" content={title} />
+<meta property="twitter:creator" content={SOCIAL_TWITTER} />
+<meta property="twitter:site" content={SOCIAL_TWITTER} />

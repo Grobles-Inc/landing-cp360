@@ -3,21 +3,30 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import CTA from "../components/CTA.astro";
+import StructuredData from "../components/StructuredData.astro";
 
 type Props = {
 	title?: string;
 	description?: string;
+	keywords?: string;
+	structuredData?: {
+		type: "website" | "organization" | "product" | "service";
+		data: any;
+	};
 };
 
 const {
 	title = "CP.360°",
 	description = "Control de Producción en Tiempo Real",
+	keywords,
+	structuredData = { type: "website", data: {} },
 } = Astro.props;
 ---
 
 <html lang="es">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} keywords={keywords} />
+		<StructuredData type={structuredData.type} data={structuredData.data} />
 	</head>
 
 	<body>

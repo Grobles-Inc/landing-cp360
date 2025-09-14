@@ -1,0 +1,105 @@
+---
+interface Props {
+	type: 'website' | 'organization' | 'product' | 'service';
+	data: any;
+}
+
+const { type, data } = Astro.props;
+
+const getStructuredData = () => {
+	switch (type) {
+		case 'website':
+			return {
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"name": "CP.360°",
+				"description": "Control de Producción en Tiempo Real para la construcción",
+				"url": "https://cp360-landing.abccostos.com/",
+				"potentialAction": {
+					"@type": "SearchAction",
+					"target": "https://cp360-landing.abccostos.com/search?q={search_term_string}",
+					"query-input": "required name=search_term_string"
+				}
+			};
+		
+		case 'organization':
+			return {
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "CP.360°",
+				"description": "Software de control de producción para la industria de la construcción",
+				"url": "https://cp360-landing.abccostos.com/",
+				"logo": "https://cp360-landing.abccostos.com/logo.png",
+				"image": "https://cp360-landing.abccostos.com/ogImage.png",
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"telephone": "+51-971-419-928",
+					"contactType": "customer service",
+					"availableLanguage": "Spanish"
+				},
+				"address": {
+					"@type": "PostalAddress",
+					"addressCountry": "PE",
+					"addressLocality": "Lima"
+				},
+				"industry": "Construction Software",
+				"knowsAbout": [
+					"Control de Producción",
+					"Gestión de Obras",
+					"Software de Construcción",
+					"Dashboards",
+					"Valor Ganado"
+				],
+				"sameAs": [
+					"https://wa.me/51971419928"
+				]
+			};
+		
+		case 'product':
+			return {
+				"@context": "https://schema.org",
+				"@type": "SoftwareApplication",
+				"name": data.name || "CP.360°",
+				"description": data.description || "Sistema de control de producción para construcción",
+				"applicationCategory": "BusinessApplication",
+				"operatingSystem": "Web",
+				"downloadUrl": "https://cp360-landing.abccostos.com/",
+				"screenshot": "https://cp360-landing.abccostos.com/ogImage.png",
+				"featureList": [
+					"Control de producción en tiempo real",
+					"Dashboards interactivos",
+					"Gestión de valor ganado",
+					"Reportes automáticos",
+					"Integración con sistemas existentes"
+				],
+				"offers": {
+					"@type": "Offer",
+					"price": data.price || "400",
+					"priceCurrency": "PEN",
+					"availability": "https://schema.org/InStock"
+				}
+			};
+		
+		case 'service':
+			return {
+				"@context": "https://schema.org",
+				"@type": "Service",
+				"name": data.name || "Control de Producción CP.360°",
+				"description": data.description || "Servicio de control de producción en tiempo real para construcción",
+				"provider": {
+					"@type": "Organization",
+					"name": "CP.360°"
+				},
+				"areaServed": "Peru",
+				"serviceType": "Software as a Service"
+			};
+		
+		default:
+			return data;
+	}
+};
+
+const structuredData = getStructuredData();
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

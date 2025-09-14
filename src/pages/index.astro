@@ -7,7 +7,18 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import CTA from "../components/CTA.astro";
 ---
 
-<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<Layout 
+	title={SITE_TITLE} 
+	description={SITE_DESCRIPTION}
+	keywords="control de producción, construcción, software construcción Perú, CP360, gestión obra, valor ganado, dashboards construcción, control costos obra"
+	structuredData={{
+		type: 'website',
+		data: {
+			name: 'CP.360°',
+			description: 'Software de control de producción en tiempo real para la industria de la construcción'
+		}
+	}}
+>
 	<HeroSection />
 	<HomeSection />
 	<CTA />

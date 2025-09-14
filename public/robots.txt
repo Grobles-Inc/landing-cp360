@@ -1,0 +1,32 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://cp360-landing.abccostos.com/sitemap-index.xml
+
+# Disallow admin areas and development files
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Allow important pages
+Allow: /caracteristicas
+Allow: /solution
+Allow: /paquetes-integrales
+Allow: /paquetes-sistema
+Allow: /aliados/
+
+# Allow static assets
+Allow: /fonts/
+Allow: /images/
+Allow: *.css
+Allow: *.js
+Allow: *.png
+Allow: *.jpg
+Allow: *.svg
+Allow: *.ico
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
